@@ -1,0 +1,72 @@
+
+JavaScript callback functions:
+1.A callback function is a function that is passed argument to another function
+2.The function receiving the callback will execute the callback at some point during its executions(often at the end or after an asynchronous operation is done)
+Example:
+function greet(name,callback){
+Console.log(`hello, ${name}`)
+callback();
+}
+function  sayGoodbye(){
+console.log(“Goodbye”)
+}
+greet(“Sam”,sayGoodbye)
+
+Ex:- function mainFunction(callback){
+Console.log(“Executing main function”);
+Callback()  //will execute after the main function
+}
+Function callback(){
+Console.log(“callbackfunction executed”);
+}
+
+Asynchronous callback with setTimeout
+Code:
+Function fetchData(callback){
+Console.log(“Fetching data…”);
+}setTimeout(function(){
+Console.log(“Data fetched……”);
+Callback()
+}2000);
+Function processData(){
+Console.log(“processing the fetched data….”)
+}
+fetchData(processData);
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+            // function name(greet){
+            //     console.log(greet);
+            // }
+            // function callbackFn(){
+            //     console.log("Callback function executed");
+            // }
+            // Mainfn(callbackFn());
+          //   function greet(name, callback) {
+          //     document.write("hello" + name);
+          //     callback();
+          //     //it will execute the callbackfunction after greeting
+          //   }
+          //   function goodbye() {
+          //     document.write("a java developer!");
+          //   }
+          //   greet("Jayadeep", goodbye);
+          function fetchData(callback){
+      document.write('Fetching data…',"<br>");
+      callback()
+      }setTimeout(function(){
+      document.write('Data fetched……');
+      },2000);
+      function processData(){
+      document.write('processing the fetched data….');
+      }
+      fetchData(processData);
+    </script>
+  </body>
+</html>
