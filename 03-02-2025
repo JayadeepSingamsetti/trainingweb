@@ -1,0 +1,8 @@
+To install react.js
+1)download node.js
+2) Command prompt
+a)Node -v
+b)Npm -v
+i.Npx create-react-app myapp
+3)Cd myapp
+4)Npm start
