@@ -1,0 +1,65 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <div id="root"> </div>
+    <script src="b.js"></script>
+</body>
+</html> -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        const element=<h1>Hello</h1>
+        const e=document.getElementById('app')
+        const root=ReactDOM.createRoot(e)
+        root.render(element)
+    </script>
+</body>
+</html>
+const b=React.createElement(
+    'h1',{id:'b'}, "I am Jayadeep"
+);
+
+const element=document.getElementById('root')
+const root=ReactDOM.createRoot(element)
+root.render(b)
+Create element by using js:
+--document.createELement(‘h1’)
+Create element by using React-js:
+React.createElement(‘h1’)
+Syntax:
+React.createElement(type,props)
+Type=tagname(h1,p,div)
+Prop=id,className, Onclick		
+
+ReactDOM.createRoot()
+ReactDOM.render() - method is used to display the element
+Syntax:
+Reactelement= what to render
+Container= where to render
+
+JSX:
+JavaScript XML
+--it is a syntax extension for js
+--here we write the html code and this will be translated to js
+--babel
+
+Points:
+<br/>
+<img/>
+Class=className
