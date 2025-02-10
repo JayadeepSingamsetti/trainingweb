@@ -1,0 +1,162 @@
+
+import React, {useState} from 'react';
+import './App.css';
+
+// // const Welcome=()=> <h1 className="message">Hello Jayadeep</h1>
+
+// // function App() {
+// //   return(
+// //     <div className="App">
+// //       <Welcome />
+// //     </div>
+// //   )
+// // }
+
+// // function App() {
+// //   return(
+// //     <div className="App">
+// //       <Welcome name="jayadeep" greeting="hello"/>
+// //     </div>
+// //   )
+// // }
+
+// // export default App;
+
+// // function App(){
+// //   const isLoggedIn=false;
+// //   return(
+// //     <div className="App Greeting">
+// //       <Greeting isLoggedIn={isLoggedIn}/>
+// //     </div>
+// //   )
+  
+  
+// // }
+// // export default App;
+
+// // function App(){
+// //   return(
+// //     <div className="App FruitList">
+// //       <FruitList />
+// //     </div>
+// //   )
+// // }
+// // export default App;
+// const Counter=()=>{
+//     const [count, setCount]=useState(0);
+//     return(
+//         <div className='App'>
+//             <h1 className='Heading'>{count}</h1>
+//             <button className='countbtn' onClick={()=>setCount(count+1)}>Increment</button>
+//             <button className=' countbtn' onClick={()=>setCount(count-1)}>Decrement</button>
+//         </div>
+//     )
+// }
+// export default Counter;
+
+const ThemeToggler=()=>{
+    const [theme, setTheme]=useState('light')
+    const toggleTheme=()=>{
+        setTheme(prevTheme=>(prevTheme==='light'?'dark':'light'))
+    }
+    return(
+        <div style={{backgroundColor:theme==='light'?'white':'black',color:theme==='light'?'black':'white',textAlign:'center', height:'100vh', padding:'5px'}}>
+            <h1>The current theme is {theme}</h1>
+            <button onClick={toggleTheme}>Toggle Theme</button>
+        </div>
+    )
+};
+export default ThemeToggler;
+/* .App {
+  text-align: center;
+  background-image: url("https://promova.com/content/medium_list_of_fruits_6f8aa72869.png");
+  height: 100vh;
+  background-size: cover;
+  padding: 5px;
+} */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.message{
+  color: blue;
+  background-color: aquamarine;
+  font-size: 40px;
+  text-align: center;
+  /* width: 30%; */
+  margin-left: 80px;
+  margin-right: 80px;
+  padding: 20px;
+  border: 5px solid black;
+}
+
+.message:hover{
+  background-color: black;
+  transition: 0.3s;
+  color: blue;
+  border: 5px solid purple;
+}
+
+.Heading{
+  font-size: 50px;
+  color: white ;
+}
+
+/* .Heading:hover{
+  color: black;
+} */
+
+.FruitList{
+  text-align: start;
+  font-size: 40px;
+}
+
+.countbtn{
+  font-size: 30px;
+  font-weight: bold;
+  color: blue;
+  margin: 10px;
+  border-radius: 30px;
+  padding: 10px;
+  background-color: cyan;
+  border:solid 5px black;
+}
+
+.App{
+  text-align: center; 
+  background-image: linear-gradient(to right, pink, purple);
+  height: 100vh;
+  padding: 5px;
+}
