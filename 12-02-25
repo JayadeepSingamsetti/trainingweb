@@ -1,0 +1,81 @@
+
+import {useState} from "react";
+import "./App.css";
+import ChildA from "./ChildA"
+import ChildB from "./ChildB"
+
+const Parent=()=>{
+    const[count, setCount]=useState(0);
+    const increment =()=>{
+        setCount(c=>c+1);
+    };
+    const decrement =()=>{
+        setCount(c=>c-1);
+    };
+    return(
+        <div className="App">
+            <ChildA/>
+            <ChildB count={count} increment={increment} decrement={decrement}/>
+        </div>
+    )
+}
+export default Parent;import React from "react";
+
+// const ChildA=()=>{
+//     console.log("Child A rendered");
+//     return <h2>This is child A</h2>
+// }
+// export default ChildA;
+
+import { memo } from "react";
+
+const ChildA=()=>{
+    console.log("Child A rendered");
+    return <h1>This is child A</h1>
+};
+export default memo(ChildA);  
+import React from "react";
+
+const ChildB = ({ count, increment, decrement }) => {
+  console.log("Child B rendered");
+  return (
+    <div>
+      <h1>Count:{count}</h1>
+      <div className="Child-direction">
+        <div className="btn-1">
+          <button
+            onClick={increment}
+            style={{
+              margin: 10,
+              padding: 10,
+              border: "solid 3px black",
+              borderRadius: 10,
+              width: 200,
+              height: 50,
+              fontWeight: "bold",
+            }}
+          >
+            Increment
+          </button>
+        </div>
+        <div className="btn-1">
+        <button
+          onClick={decrement}
+          style={{
+            margin: 10,
+            padding: 10,
+            border: "solid 3px black",
+            fontWeight: "bold",
+            borderRadius: 10,
+            width: 200,
+            height: 50,
+          }}
+        >
+          Decrement
+        </button></div>
+      </div>
+    </div>
+  );
+};
+
+export default ChildB;
