@@ -1,3 +1,4 @@
+//imagine you are building an app that displays the details of a users profile .the data about the user includes their name and email. the app component will pass this user data to a deeply nested child component called profile.In this assignment you will use prop drilling to pass the data from App to Profile and use React context to pass the data directly to Profile without going through each component
 import React, { createContext, useContext } from "react";
 
 // Create context to hold the data
