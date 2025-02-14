@@ -1,0 +1,97 @@
+
+// export default App;
+
+// import { type } from "@testing-library/user-event/dist/type";
+// import React, { useReducer } from "react";
+// //reducer function to trrack the number of apples
+// function appleReducer(state=3,action){
+//   switch(action.type){
+//     case 'ADD_APPLE':
+//       return state+1;
+//     case 'EAT_APPLE':
+//       return state-1;
+//     default:
+//       return state;
+//   }
+// }
+
+// function App(){
+//   const [state,dispatch]=useReducer(appleReducer,3)
+//   return(
+//     <div>
+//       <h1>Apple Counter</h1>
+//       <p>Number of Apples: {state}</p>
+//       <button onClick={()=>dispatch({type:"ADD_APPLE"})}>Add Apple</button>
+//       <button onClick={()=>dispatch({type:"EAT_APPLE"})}>Eat Apple</button>      
+//     </div>
+//   )
+// }
+// export default App() ;
+
+//showing apple image and increasing and decreasing the image count with a add apple annd eat apple counter
+
+
+// import React, { useReducer } from "react";
+// import "./App.css"; // Import CSS file
+
+// // Reducer function to track the number of apples
+// function appleReducer(state = 3, action) {
+//   switch (action.type) {
+//     case "ADD_APPLE":
+//       return state + 1;
+//     case "EAT_APPLE":
+//       return state > 0 ? state - 1 : 0; 
+//     default:
+//       return state;
+//   }
+// }
+
+// function App() {
+//   const [state, dispatch] = useReducer(appleReducer, 3);
+
+//   return (
+//     <div className="container">
+//       <h1>Apple Counter</h1>
+//       <p className="apple-count">Number of apples: {state}</p>
+//       <div className="apple-container">
+//         {Array.from({ length: state }).map((_, index) => (
+//           <img key={index} src="https://tse2.mm.bing.net/th?id=OIP.nKkm0wnm9J-Ko2rny3mAzAHaIo&pid=Api&P=0&h=180" alt="Apple" className="apple-image" />
+//         ))}
+//       </div>
+//       <div className="button-group">
+//         <button className="add-btn" onClick={() => dispatch({ type: "ADD_APPLE" })}>
+//           Add Apple
+//         </button>
+//         <button className="eat-btn" onClick={() => dispatch({ type: "EAT_APPLE" })}>
+//           Eat Apple
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import React,{useState} from "react";
+import Child from './Child'
+
+const Parent=()=>{
+  const [message, setMessage]=useState("Hello world");
+const changeMessage=()=>{
+  setMessage("you clicked the button")
+}
+
+return(
+  <div>
+    <h1>{message}</h1>
+    <Child changeMessage={changeMessage} />
+  </div>
+)}
+export default Parent;
+import React from "react";
+const Child=({changeMessage})=>{
+    return(
+        <button onClick={changeMessage}>Click me</button>
+    )
+}
+export default Child;
