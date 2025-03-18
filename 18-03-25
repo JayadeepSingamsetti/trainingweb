@@ -1,0 +1,57 @@
+import {useCart} from "./CartContext";
+import {useNavigate} from "react-router-dom";
+
+const Cart = () => {
+    const {cart, removeFromCart} = useCart();
+    const navigate = useNavigate();
+
+    const totalPrice = cart.reduce((acc, item) => acc + item.pcost * item.quantity, 0);
+    return (
+        <div className="cart-container">
+            <button className="back-button cart-back" onClick={() => navigate(-1)}> Back</button>
+
+            <h2>Your Cart</h2>
+            {cart.length === 0 ? (
+                <p>Cart is empty</p>
+            ) : (
+                <div>
+                    {cart.map(item => (
+                        <div key={item.uniquekey} className="cart-item">
+                            <img src={item.pimage} alt={item.pname}/>
+                            <div>
+                                <h3>{item.pname}</h3>
+                                <p>Type: {item.type}</p>
+                                <p>Price: {item.pcost}</p>
+                                <p>Qty: {item.quantity}</p>
+                                <button onClick={() => removeFromCart(item.uniqueKey)}>Remove</button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}import { Link, Outlet } from "react-router-dom";
+import {useCart} from "./CartContext";
+
+const Dashboard=()=>{
+    const {cart}=useCart();
+
+    return(
+        <div className="dashboard-container">
+            <Link to="/cart" className="cart-icon">
+                {cart.lenght >0 && <span className="cart-count">{cart.length}</span>}
+            </Link>
+
+            <nav className="dashboard-nav">
+                <Link to="mobiles">Mobiles</Link>
+                <Link to="laptops">Laptops</Link>
+                <Link to="watches">Watches</Link>
+            </nav>
+            <div className="dashboard-content">
+                <Outlet/>
+            </div>
+        </div>
+    );
+};
+export default Dashboard;
